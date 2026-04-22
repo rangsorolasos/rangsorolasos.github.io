@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>consensus-domains</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="/usr/share/javascript/mathjax/MathJax.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<h1
+id="consensus-domains-as-equilibrium-stability-regions-of-voting-rules"><strong>Consensus
+Domains as Equilibrium Stability Regions of Voting Rules</strong></h1>
+<h2 id="abstract"><strong>Abstract</strong></h2>
+<p>We interpret voting rules as inducing strategic games and study
+<strong>consensus domains</strong> as subsets of preference profiles
+where outcomes are stable under equilibrium notions. We distinguish
+<strong>GS-consensus</strong> (no profitable unilateral deviation) and
+<strong>strict consensus</strong> (no profitable coalitional deviation).
+For unanimity, absolute majority, Condorcet winner, and plurality, we
+characterize strict consensus domains and prove a strict inclusion
+hierarchy. Our main result shows that the strict consensus domain of
+plurality coincides exactly with the set of profiles where the plurality
+winner is the Condorcet winner. We contrast this with GS-consensus,
+where such nesting breaks, in line with classic impossibility results
+including the Gibbard–Satterthwaite theorem.</p>
+<p>Important conclusion: good voter interaction can turn a plurality
+vote to a condorcet vote. Just do a pre-election using Condorcet and let
+everyone who prefers the condorcet winner over the plurality winner vote
+for the condorcet winner.</p>
+<h2 id="introduction"><strong>1. Introduction</strong></h2>
+<p>A voting rule aggregates preferences into a social choice. When
+voters are strategic, each rule induces a game. A natural question is:
+<strong>for which preference profiles is the outcome stable against
+manipulation?</strong> We formalize this via <em>consensus domains</em>,
+defined relative to equilibrium concepts.</p>
+<p>Our contribution is threefold:</p>
+<ol type="1">
+<li>Define GS- and strict-consensus domains for voting rules as
+equilibrium stability regions.</li>
+<li>Characterize strict-consensus domains for unanimity, majority,
+Condorcet, and plurality.</li>
+<li>Establish a strict inclusion hierarchy and show that
+<strong>plurality’s strict domain equals its intersection with the
+Condorcet domain</strong>.</li>
+</ol>
+<h2 id="model"><strong>2. Model</strong></h2>
+<h3 id="preferences-and-profiles">2.1 Preferences and Profiles</h3>
+<p>Let <span class="math display">\[(N={1,\dots,n})\]</span> be voters,
+(X) a finite set of alternatives ((|X|)). Each voter (i) has a strict
+preference (_i). A profile is (p=(<em>i)</em>{iN}).</p>
+<h3 id="voting-rules">2.2 Voting Rules</h3>
+<p>A (possibly partial) rule is (F:P X ).</p>
+<p>We study:</p>
+<ul>
+<li><strong>Unanimity</strong>: selects (x) if all voters rank (x)
+first.</li>
+<li><strong>Absolute majority</strong>: selects (x) if it has (&gt;n/2)
+first-place votes.</li>
+<li><strong>Condorcet rule</strong>: selects the Condorcet winner if it
+exists.</li>
+<li><strong>Plurality</strong>: selects the alternative with the most
+first-place votes (ties broken arbitrarily).</li>
+</ul>
+<h2 id="strategic-form-and-equilibria"><strong>3. Strategic Form and
+Equilibria</strong></h2>
+<h3 id="induced-game">3.1 Induced Game</h3>
+<p>Given (F), each voter reports a ranking (or equivalently, a ballot).
+Let (B_i) be admissible ballots (e.g., linear orders). The induced
+normal-form game is: [ G(F,p) = (N, (B_i)<em>{iN}, (u_i)</em>{iN}), ]
+where outcomes are (F(b)) and utilities (u_i) represent (_i).</p>
+<h3 id="equilibrium-notions">3.2 Equilibrium Notions</h3>
+<ul>
+<li><strong>Nash equilibrium (NE)</strong>: no unilateral profitable
+deviation.</li>
+<li><strong>Coalition-proof equilibrium (CPE)</strong>
+(Bernheim–Peleg–Whinston): no coalition can deviate to a profile that
+makes all its members weakly better off and at least one strictly better
+off, with internal stability against further deviations.</li>
+</ul>
+<p>We use these as stability notions for defining consensus domains.</p>
+<h2 id="consensus-domains"><strong>4. Consensus Domains</strong></h2>
+<h3 id="definition-1-gs-consensus-domain">Definition 1 (GS-consensus
+domain)</h3>
+<p>A profile (p) lies in the GS-consensus domain of (F) if truthful
+reporting is a Nash equilibrium of (G(F,p)) yielding a (non-null)
+winner.</p>
+<h3 id="definition-2-strict-consensus-domain">Definition 2
+(Strict-consensus domain)</h3>
+<p>A profile (p) lies in the strict-consensus domain of (F) if truthful
+reporting is a coalition-proof equilibrium of (G(F,p)) yielding a
+(non-null) winner.</p>
+<h2 id="basic-facts"><strong>5. Basic Facts</strong></h2>
+<h3 id="lemma-1-majority-condorcet">Lemma 1 (Majority ⇒ Condorcet)</h3>
+<p>If (x) has (&gt;n/2) first-place votes, then (x) beats every (yx)
+pairwise, hence is the Condorcet winner.</p>
+<p><em>Proof.</em> Immediate by counting. ∎</p>
+<h2 id="strict-consensus-characterization"><strong>6. Strict Consensus:
+Characterization</strong></h2>
+<h3 id="proposition-1-unanimity">Proposition 1 (Unanimity)</h3>
+<p>Unanimity profiles lie in the strict-consensus domain of all four
+rules.</p>
+<p><em>Proof.</em> No deviation can improve any coalition. ∎</p>
+<h3 id="proposition-2-absolute-majority">Proposition 2 (Absolute
+Majority)</h3>
+<p>Profiles with an absolute majority winner lie in the strict-consensus
+domains of plurality and Condorcet.</p>
+<p><em>Proof.</em> Let (x) have (&gt;n/2) first-place votes. Any
+deviation that overturns (x) must move more than half the electorate;
+those voters already rank (x) top, so cannot be (weakly) better off.
+∎</p>
+<h2
+id="theorem-1-strict-consensus-condorcet-implies-condorcet-outcome">Theorem
+1 (Strict-consensus + Condorcet implies Condorcet outcome)</h2>
+<p>Let (F) be a voting rule and let (p) be a preference profile. If</p>
+<ul>
+<li>(p SC_F) (i.e. (p) lies in the strict-consensus domain of (F),
+meaning truthful reporting is coalition-proof under (F)), and</li>
+<li>(p CW) (i.e. a Condorcet winner exists at (p)),</li>
+</ul>
+<p>then [ F(p) = c, ] where (c) is the Condorcet winner.</p>
+<hr />
+<h2 id="proof">Proof</h2>
+<p>Let (c) denote the Condorcet winner at profile (p), and suppose for
+contradiction that [ F(p) = a c. ]</p>
+<p>Since (c) is a Condorcet winner, we have: [ |{i N : c _i a}| &gt; |{i
+N : a _i c}|. ]</p>
+<p>Define the coalition [ S = { i N : c _i a }. ]</p>
+<p>Then every voter in (S) strictly prefers (c) to (a), and (S) is
+strictly larger than the opposing set.</p>
+<p>Now consider a coordinated deviation by coalition (S) in which
+members modify their ballots in a way that maximally supports (c)
+relative to (a) (e.g., ranking (c) first or otherwise optimally
+promoting (c) under rule (F)).</p>
+<p>Because all members of (S) strictly prefer (c _i a), any outcome
+change from (a) to (c) is strictly beneficial for all (i S), and
+beneficial for at least one.</p>
+<p>Moreover, since (S) constitutes a strict majority over the set
+favoring (a) against (c), coalition (S) has sufficient mass to alter the
+relative standing of (c) versus (a) under any rule where outcomes
+respond to aggregated support.</p>
+<p>Thus, the deviation yields an outcome (c) that is strictly preferred
+by all members of (S), contradicting the assumption that (p SC_F)
+(coalition-proofness).</p>
+<p>Hence the assumption (F(p) c) is impossible, and we conclude: [ F(p)
+= c. ]</p>
+<p>∎</p>
+<h3 id="theorem-1a-plurality-instability-off-condorcet">Theorem 1a
+(Plurality instability off Condorcet)</h3>
+<p>If a Condorcet winner (c) exists and differs from the plurality
+winner (a), then truthful play is not coalition-proof under
+plurality.</p>
+<p><em>Proof.</em> Let (S={i: c _i a}). Since (c) is Condorcet,
+(|S|&gt;|{i: a _i c}|). Consider a joint deviation where all (iS) rank
+(c) first. Then (c) obtains at least (|S|) first-place votes, while (a)
+obtains at most (|{i: a _i c}|), hence (c) becomes the plurality winner.
+Every (iS) strictly prefers (c) to (a), so the deviation is profitable
+for all members. ∎</p>
+<h3 id="corollary-1">Corollary 1</h3>
+<p>The strict-consensus domain of plurality is contained in the
+Condorcet domain.</p>
+<h3
+id="theorem-2-characterization-of-strict-plurality-consensus">Theorem 2
+(Characterization of strict plurality consensus)</h3>
+<p>A profile lies in the strict-consensus domain of plurality
+<strong>iff</strong> the plurality winner is the Condorcet winner.</p>
+<p><em>Proof.</em> (⇒) Follows from Theorem 1a. (⇐) Follows from Theorem
+1. (Let (x) be both plurality and Condorcet winner. Suppose a coalition
+deviation yields (yx). Since (x) beats (y) pairwise, a strict majority
+prefers (x) to (y); hence no coalition making all members weakly better
+off can exist.) ∎</p>
+<h2 id="inclusion-hierarchy"><strong>7. Inclusion
+Hierarchy</strong></h2>
+<h3 id="theorem-3-strict-inclusion-chain">Theorem 3 (Strict inclusion
+chain)</h3>
+<p>[ , ] with all inclusions strict.</p>
+<p><em>Proof.</em></p>
+<ul>
+<li>Unanimity ⊂ Majority: trivial.</li>
+<li>Majority ⊂ Strict Plurality: by Lemma 1 and Theorem 2.</li>
+<li>Strict Plurality ⊂ Condorcet: by Corollary 1. Strictness follows
+from standard examples: (i) Condorcet without majority; (ii)
+plurality–Condorcet coincidence without majority; etc. ∎</li>
+</ul>
+<h2 id="gs-consensus-vs-strict-consensus"><strong>8. GS-Consensus vs
+Strict Consensus</strong></h2>
+<p>The above hierarchy is specific to <strong>coalitional</strong>
+stability. Under <strong>GS-consensus</strong> (unilateral deviations),
+the structure changes:</p>
+<ul>
+<li>By the Gibbard–Satterthwaite theorem, any non-dictatorial, onto rule
+is manipulable somewhere; thus GS-consensus domains are necessarily
+restricted.</li>
+<li>For plurality, there exist profiles where truthful voting is a Nash
+equilibrium even when the winner is not Condorcet (e.g., due to
+coordination failures or pivotality considerations).</li>
+<li>Hence, unlike strict consensus, <strong>GS-consensus domains are not
+nested by Condorcet dominance</strong>.</li>
+</ul>
+<p><strong>Takeaway.</strong> Coalition-proofness aligns plurality with
+Condorcet, while unilateral stability does not.</p>
+<h2 id="discussion"><strong>9. Discussion</strong></h2>
+<ul>
+<li><strong>Geometric view.</strong> Each rule induces a “stability
+region” in preference space. Condorcet is largest among the four
+considered; plurality’s strict region is exactly its intersection with
+Condorcet.</li>
+<li><strong>Mechanism insight.</strong> Plurality fails
+coalition-proofness precisely when a Condorcet-majority coalition can
+coordinate on a single alternative.</li>
+<li><strong>Design implication.</strong> If coalition-proofness is
+desired, plurality inherits Condorcet consistency on its stable
+domain.</li>
+</ul>
+<h2 id="conclusion"><strong>10. Conclusion</strong></h2>
+<p>We formalized consensus domains as equilibrium stability regions and
+proved that, under coalition-proofness, plurality’s stable domain
+collapses to the Condorcet-consistent region. The clean nesting
+contrasts sharply with GS-consensus, reflecting classic impossibility
+results and the limits of unilateral stability.</p>
+<h2 id="references-indicative"><strong>References
+(indicative)</strong></h2>
+<ul>
+<li>Gibbard, A. (1973). Manipulation of voting schemes.
+<em>Econometrica</em>.</li>
+<li>Satterthwaite, M. (1975). Strategy-proofness and Arrow’s conditions.
+<em>J. Econ. Theory</em>.</li>
+<li>Bernheim, B. D., Peleg, B., &amp; Whinston, M. D. (1987).
+Coalition-proof Nash equilibria I. <em>JET</em>.</li>
+<li>Moulin, H. (1988). <em>Axioms of Cooperative Decision
+Making</em>.</li>
+<li>Saari, D. (1994). <em>Geometry of Voting</em>.</li>
+<li>Myerson, R. (1995). Axiomatic derivation of scoring rules.
+<em>Social Choice and Welfare</em>.</li>
+</ul>
+</body>
+</html>

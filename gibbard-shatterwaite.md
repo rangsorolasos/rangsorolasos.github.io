@@ -1,0 +1,11 @@
+A Gibbard–Satterthwaite tétel szokásos értelmezése az, hogy azok a preferenciális szavazási rendszerek, amelyek mindig eredményt adnak, vagy manipulálhatók, vagy diktatórikusak. Ezt halljuk szinte minden alkalommal, amikor választási reformot javasolnak. És ezzel az értelmezéssel komoly problémák vannak.
+
+A figyelmeztető jel a kimondatlan rész. A „amelyek mindig eredményt adnak” kitételt általában elhagyják, vagy gondolatban átsiklanak felette. Pedig éppen ez az, ami egy nagyon fontos dolgot mond el: a szavazás csupán egy része a társadalmi döntéshozatali folyamatnak. Ha a megfontolás (deliberáció) nem elegendő, a szavazás nem fogja varázsütésre betölteni a hiányokat. Így a helyes értelmezés inkább az:
+
+**Ha a szavazási rendszer nem képes jelezni, hogy további megfontolásra van szükség, akkor manipulációhoz és diktatúrához vezethet.**
+
+Hogy megértsük, ez hogyan működik, nézzük meg az egyetlen jelentős szavazási rendszert, amely nem minden esetben ad eredményt: a Condorcet-módszer. Amikor a preferenciák nem tranzitívak, nincs Condorcet-győztes. De mit is jelent ez valójában?
+
+A Condorcet-ciklust gyakran a három város problémájával szemléltetik: van három város, amelyek meghatározott távolságra vannak egymástól, és adott népességgel rendelkeznek. Az emberek egy főváros kiválasztásáról szavaznak. Mindenki első választása a saját városa, a második pedig a legközelebbi. Ha a számokat megfelelően állítjuk be, kialakul egy Condorcet-ciklus. Itt feltételezzük, hogy a szavazók legfőbb szempontja az utazási távolság minimalizálása, és teljes tudatában vannak saját igényeiknek. Nos, ha a minimális utazás ilyen meghatározó szempont, akkor a Bayes-i veszteség minimalizálásának nyilvánvaló módja az lenne, ha egy új fővárost építenének a terület tömegközéppontjába (a népességet figyelembe véve). Ha ezt felvennénk a szavazólapra, megszűnne a Condorcet-ciklus. A helyes választási lehetőség hiányzott a szavazólapról, és egy kis deliberáció feltárta volna.
+
+A Condorcet-ciklus egy valós példája a Brexit kapcsán jelent meg. Volt egy Condorcet-ciklus a „Megállapodás”, „Maradás” és „Megállapodás nélküli kilépés” opciók között. A Brexit híres példája annak, amikor a szavazók kezdetben nem voltak tisztában döntésük következményeivel. Egy kis megfontolás segített volna nekik a teljes kép megértésében.
