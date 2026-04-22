@@ -1,0 +1,5 @@
+[
+  { "name": "Kezdőlap", "url": "/" },
+  { "name": "Mi ez?", "url": "/mi-ez/" },
+  { "name": "Próbáld ki", "url": "/proba/" }
+]

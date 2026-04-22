@@ -1,0 +1,8 @@
+<header class="navbar">
+  <div class="logo">Rangsorolásos Választás</div>
+  <nav class="menu">
+    {% for item in menu %}
+      <a href="{{ item.url }}">{{ item.name }}</a>
+    {% endfor %}
+  </nav>
+</header>
