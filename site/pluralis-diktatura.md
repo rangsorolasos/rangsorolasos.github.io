@@ -1,0 +1,81 @@
+# A plurális diktatúra
+
+Jelen írás tulajdonképpen egy útibeszámoló a választási matematika legsötétebb bugyraiba tett kirándulásról, de mindenféle furcsa jelek nélkül, és talán közérthetően.
+Kalandozásaink során eljutunk a Nemzethy Konzultációhoz, mint matematikai értelemben vett Moszkvába, és megnézzük egy érdekes aspektusát a legfrissebb rendszerváltásnak. Amiből azt is megtudjuk, hogy hogyan tudtuk volna négy évvel ezelőtt is megcsinálni ha kicsit többet foglalkozunk választási matekkal.
+
+Az egész egy szép nyári napon kezdődött Horányban, amikor Mérő Lászlónak nekiszegeztem a kérdést:
+mint a játékelméletben jártas embernek akit érdekelnek a társadalmi kérdések, nem kellene-e részt vállalnia abban, hogy segít az embereknek megérteni azt az amúgy a választásokkal foglalkozó politológusok és matematikusok
+körében közismert tényt, hogy a rangsorolásos választási rendszerek a szimbolikus gyűlöletpolitizálás helyett a valódi párbeszédet motiválják a politikusok számára, ezzel az egész közbeszéd minőségét befolyásolva?
+
+Erre egy eléggé rövid választ kaptam, aminek a lényege annyi volt: Gibbard–Satterthwaite tétel.
+
+Ez egy matematikai tétel, aminek a szokásos értelmezése a következő:
+
+**A legalább három alternatíva közül determinisztikusan eredményt adó rangsorolásos szavazási módszerek vagy diktatúrához vezetnek vagy manipulálhatóak.**
+
+Ez így ebben a formában nem hangzik jól. Nézzük hát meg közelebbről.
+
+Mielőtt a fenti mondat szavait kissé átrendezve megmutatnám hogy ez a tétel mit mond el a Nemzeti Konzultáció intézményéről, elmélkedjünk egy kicsit arról, hogy mivégre is szavazunk?
+
+A szavazás a közösségi döntéshozatal, mint folyamat egyik szokásos eleme, és a célja annak megmérése, hogy mi a közösség konszenzusa egy kérdésben. Konszenzusból pedig többfélét is ismerünk:
+
+- Az teljes konszenzus (sokszor ezt szoktuk a köznyelvben konszenzusnak nevezni) az, amikor mindenki ugyanazon a véleményen van.
+- A többségi konszenzus az, amikor a különböző válaszok közül az egyiknek abszolút többsége van.
+- A Condorcet konszenzus pedig az, amikor a nyertes válasz minden más választ páronkénti összehasonlításban megver.
+
+A következő lépés kicsit meredek lesz, ezért messzebről futunk neki:
+
+Minden szavazónak egy adott kérdésben vannak preferenciái. Az egyik megoldást jobban szereti, a másodikat kevésbé, stb. Egy adott pillanatban az összes szavazóra vonatkozóan az hogy mit gondolnak, az adott közösségi preferencia.
+Egy közösségi preferenciát tekinthetünk úgy mint egy (sok dimenziós) tér egy pontját.
+
+Minden ilyen pontra egy adott szavazási módszer valamilyen eredményt ad, vagy nem ad eredményt - mint amikor az Európa Tanács a leköszönő miniszterelnökünk jelenlétében szavaz az Oroszország elleni szankciókról.
+
+Ilyen módon minden szavazási módszerhez tartozik a közösségi preferenciáknak egy olyan halmaza, amire az a szavazási rendszer eredményt ad. Nevezzük el ezt a halmazt mondjuk a szavazási rendszer által definiált konszenzusnak.
+
+Tehát a teljes konszenzust a teljes egyetértést, a többségi konszenzust a többségi szavazás, a Condorcet konszenzust pedig a Condorcet módszerrel való szavazás definiálja.
+
+Ha megnézzük ezt a három halmazt, azt látjuk, hogy a teljes konszenzust teljes egészében tartalmazza a többségi konszenzus, azt pedig a Condorcet konszenzus.
+
+Condorcet márki valamire rátapintott, mert bármikor szó van a választáselmélet matematikájáról, az ő neve előkerül.
+
+Pl. a Gibbard–Satterthwaite tétel bizonyításánál.
+
+Ez a tétel a szavazási módszer kétféle instabilitásáról szól:
+
+- diktatúra az, amikor egy ember meg tudja változtatni a szavazás eredményét úgy, hogy az jó legyen neki
+
+- manipulálhatóság pedig az, amikor több ember koordináltan tudja ezt tenni
+
+Ennek megfelelően beszélhetünk szigorú konszenzusról is: szigorú konszenzus az, ahol a szavazási módszer eredményt ad, és stabil.
+
+Az eddig tárgyalt konszenzusok pontosan megegyeznek a nekik megfelelő szigorú konszenzussal, mert ahol eredményt adnak, ott stabilak. Mert ahol nem lennének stabilak, nem adnak eredményt.
+
+Oké, lehet hogy ez nem is útibeszámoló, hanem krimi. Drága barátom, sikerült ennyiből összerakni hogy _valójában_ miről szól a Gibbard–Satterthwaite tétel?
+
+Akkor most nézzünk egy olyan konszenzust, ami nem egyezik meg a saját szigorú változatával. Egy példa erre a plurális konszenzus, ami az egy X-es szavazási módszerhez tartozik.
+
+A plurális szavazásnak szavazategyezőség kivételével mindig van eredménye, de csak ott stabil, ahol Condorcet konszenzus is van. De ott sem mindenhol. És ahol mindkét konszenzus van, ott a két módszer eredménye megegyezik.
+
+Ebből pedig az következik, hogy a szigorú plurális konszenzus a Condorcet konszenzus részhalmaza. Ha pedig a Condorcet konszenzusból kivonjuk a szigorú plurális konszenzust, megkapjuk azt a halmazt, ahol a két eredmény különbözik, és a többség diktatúrája érvényesül. Ezt nevezhetjük plurális diktatúrának. Az pedig egy másik tanulmány témája, hogy a Duverger törvényből hogyan következik a plurális diktatúra.
+
+Ami pedig nagyon érdekes, hogy ahol a plurális választás más eredményt ad, mint a Condorcet, ott azért nem stabil mert megfelelő koordinációval el lehet érni hogy a plurális választás eredménye a Condorcet győztes legyen.
+
+Vegyünk például egy olyan országot, ahol a plurális választás eredményt ad. Nevezzük ezt az eredményt pl. OV-nak. Ha van ettől különböző Condorcet győztes (amit nevezzünk mondjuk MPnek), akkor a szavazók tudnak úgy koordinálni, hogy taktikai szavazással OV helyett MP-t szavazzák meg. És ehhez csak azoknak kell rá szavazniuk, akik tényleg azt gondolják hogy MP kevésbé rossz, mint OV. Ezt bizonyítani is tudom, de a történtek fényében azt hiszem felesleges.
+
+Nekünk sikerült a Condorcet konszenzust megtalálnunk teljesen informális módszerekkel, szavazás nélkül is. De tarthattunk volna előválasztást is, amin Condorcet módszerrel szavazva megtudjuk hogy miben egyezünk meg, és emlékeztetjük magunkat arra hogy mit mond a matek. Lehet hogy MZP megbánta volna ha így lesz, de az biztos hogy én nagyon bánom hogy nem lett így.
+
+Visszatérve a plurális konszenzus fenti tulajdonságaira: a szigorú plurális konszenzus a Condorcet konszenzus részhalmaza. Az pedig eléggé triviálisan belátható, hogy a többségi konszenzus a szigorú plurális konszenzus részhalmaza.
+
+Ezek a konszenzusok között ilyen módon létezik egy sorrend: a teljes konszenzus a legerősebb, és a vizsgált konszenzusok közül a Condorcet konszenzus a leggyengébb. Van egy megérzésem hogy a Condorcet konszenzus az elvileg létező leggyengébb szigorú konszenzus. Ami azon kivűl van, az instabil: diktatúra vagy manipuláció. Valószínúleg ez ki is olvasható a Gibbard–Satterthwaite tétel bizonyításából. A tétel lényegében azt mondja, hogy nincs olyan szavazási módszer ami mindenhol stabil, és a bizonyítás épp arra épül, hogy a Condorcet konszenzuson kívül instabilitás van. Ezt még nem bizonyítottam, mert annyira nem vagyok okos.
+
+
+Oké, de akkor tulajdonképpen mit is mond ez a tétel valójában?
+
+Figyeljük csak meg mennyire hangsúlytalanul el van dugva a szokásos értelmezésben az hogy "eredményt hoz"? Pedig a lényeg éppen az eredményt hozó szavazási módszer és a konszenzus viszonya.
+
+Azt mondja, hogy ** ha nincs konszenzus, azt ne is keresd mert annak diktatúra vagy manipuláció lesz a vége**.
+
+Úgy is fogalmazhatjuk, hogy az a szavazás, ami nem tudja jelezni hogy nincs konszenzus, az egy nagy vörös zászló arra hogy manipulálnak. És a vörös zászlót látva tudjuk hogy el is érkeztünk a szavazások Moszkvájába: a Nemzeti Konzultáció nem tudott volna alkalmas lenni manipulációra, ha mondjuk van egy harmadik választás is az igen és a nem mellett: "a fentiek egyike sem".
+
+Ha nincs konszenzus, akkor addig kell beszélgetni, amíg meg nem találjuk, de ez is egy teljes másik cikket érdemel.
+
