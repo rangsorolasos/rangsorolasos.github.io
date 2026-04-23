@@ -1,3 +1,7 @@
+---
+layout: layout.njk
+title: A plurális diktatúra
+---
 # A plurális diktatúra
 
 Jelen írás tulajdonképpen egy útibeszámoló a választási matematika legsötétebb bugyraiba tett kirándulásról, de mindenféle furcsa jelek nélkül, és talán közérthetően.
