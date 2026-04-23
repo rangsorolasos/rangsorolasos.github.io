@@ -1,0 +1,203 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage[utf8]{inputenc}
+
+% Theorem environments
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+
+\title{Consensus Domains as Equilibrium Stability Regions of Voting Rules}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We interpret voting rules as inducing strategic games and study \textbf{consensus domains} as subsets of preference profiles where outcomes are stable under equilibrium notions. We distinguish \textbf{GS-consensus} (no profitable unilateral deviation) and \textbf{strict consensus} (no profitable coalitional deviation). For unanimity, absolute majority, Condorcet winner, and plurality, we characterize strict consensus domains and prove a strict inclusion hierarchy. Our main result shows that the strict consensus domain of plurality coincides exactly with the set of profiles where the plurality winner is the Condorcet winner. We contrast this with GS-consensus, where such nesting breaks, in line with classic impossibility results including the Gibbard–Satterthwaite theorem.
+
+Important conclusion: good voter interaction can turn a plurality vote to a Condorcet vote. Just do a pre-election using Condorcet and let everyone who prefers the Condorcet winner over the plurality winner vote for the Condorcet winner.
+\end{abstract}
+
+\section{Introduction}
+A voting rule aggregates preferences into a social choice. When voters are strategic, each rule induces a game. A natural question is: \textbf{for which preference profiles is the outcome stable against manipulation?} We formalize this via \emph{consensus domains}, defined relative to equilibrium concepts.
+
+Our contribution is threefold:
+\begin{enumerate}
+    \item Define GS- and strict-consensus domains for voting rules as equilibrium stability regions.
+    \item Characterize strict-consensus domains for unanimity, majority, Condorcet, and plurality.
+    \item Establish a strict inclusion hierarchy and show that \textbf{plurality’s strict domain equals its intersection with the Condorcet domain}.
+\end{enumerate}
+
+\section{Model}
+\subsection{Preferences and Profiles}
+Let $N = \{1,\dots,n\}$ be voters, $X$ a finite set of alternatives ($|X|\ge 3$). Each voter $i$ has a strict preference $\succ_i$. A profile is $p = (\succ_i)_{i\in N}$.
+
+\subsection{Voting Rules}
+A (possibly partial) rule is $F: \mathcal P \to X \cup \{\varnothing\}$.
+
+We study:
+\begin{itemize}
+    \item \textbf{Unanimity}: selects $x$ if all voters rank $x$ first.
+    \item \textbf{Absolute majority}: selects $x$ if it has $> n/2$ first-place votes.
+    \item \textbf{Condorcet rule}: selects the Condorcet winner if it exists.
+    \item \textbf{Plurality}: selects the alternative with the most first-place votes (ties broken arbitrarily).
+\end{itemize}
+
+\section{Strategic Form and Equilibria}
+\subsection{Induced Game}
+Given $F$, each voter reports a ranking (or equivalently, a ballot). Let $\mathcal B_i$ be admissible ballots (e.g., linear orders). The induced normal-form game is:
+\[
+G(F,p) = \big(N, (\mathcal B_i)_{i\in N}, (u_i)_{i\in N}\big),
+\]
+where outcomes are $F(b)$ and utilities $u_i$ represent $\succ_i$.
+
+\subsection{Equilibrium Notions}
+\begin{itemize}
+    \item \textbf{Nash equilibrium (NE)}: no unilateral profitable deviation.
+    \item \textbf{Coalition-proof equilibrium (CPE)} (Bernheim–Peleg–Whinston): no coalition can deviate to a profile that makes all its members weakly better off and at least one strictly better off, with internal stability against further deviations.
+\end{itemize}
+We use these as stability notions for defining consensus domains.
+
+\section{Consensus Domains}
+\begin{definition}[GS-consensus domain]
+A profile $p$ lies in the GS-consensus domain of $F$ if truthful reporting is a Nash equilibrium of $G(F,p)$ yielding a (non-null) winner.
+\end{definition}
+
+\begin{definition}[Strict-consensus domain]
+A profile $p$ lies in the strict-consensus domain of $F$ if truthful reporting is a coalition-proof equilibrium of $G(F,p)$ yielding a (non-null) winner.
+\end{definition}
+
+\section{Basic Facts}
+\begin{lemma}[Majority $\Rightarrow$ Condorcet]
+If $x$ has $> n/2$ first-place votes, then $x$ beats every $y\neq x$ pairwise, hence is the Condorcet winner.
+\end{lemma}
+\begin{proof}
+Immediate by counting.
+\end{proof}
+
+\section{Strict Consensus: Characterization}
+\begin{proposition}[Unanimity]
+Unanimity profiles lie in the strict-consensus domain of all four rules.
+\end{proposition}
+\begin{proof}
+No deviation can improve any coalition.
+\end{proof}
+
+\begin{proposition}[Absolute Majority]
+Profiles with an absolute majority winner lie in the strict-consensus domains of plurality and Condorcet.
+\end{proposition}
+\begin{proof}
+Let $x$ have $> n/2$ first-place votes. Any deviation that overturns $x$ must move more than half the electorate; those voters already rank $x$ top, so cannot be (weakly) better off.
+\end{proof}
+
+\begin{theorem}[Strict-consensus + Condorcet implies Condorcet outcome]
+Let $F$ be a voting rule and let $p$ be a preference profile. If
+\begin{itemize}
+    \item $p \in SC_F$ (i.e. $p$ lies in the strict-consensus domain of $F$, meaning truthful reporting is coalition-proof under $F$), and
+    \item $p \in CW$ (i.e. a Condorcet winner exists at $p$),
+\end{itemize}
+then
+\[
+F(p) = c,
+\]
+where $c$ is the Condorcet winner.
+\end{theorem}
+
+\begin{proof}
+Let $c$ denote the Condorcet winner at profile $p$, and suppose for contradiction that
+\[
+F(p) = a \neq c.
+\]
+Since $c$ is a Condorcet winner, we have:
+\[
+|\{i \in N : c \succ_i a\}| > |\{i \in N : a \succ_i c\}|.
+\]
+Define the coalition
+\[
+S = \{ i \in N : c \succ_i a \}.
+\]
+Then every voter in $S$ strictly prefers $c$ to $a$, and $S$ is strictly larger than the opposing set.
+
+Now consider a coordinated deviation by coalition $S$ in which members modify their ballots in a way that maximally supports $c$ relative to $a$ (e.g., ranking $c$ first or otherwise optimally promoting $c$ under rule $F$).
+
+Because all members of $S$ strictly prefer $c \succ_i a$, any outcome change from $a$ to $c$ is strictly beneficial for all $i \in S$, and beneficial for at least one.
+
+Moreover, since $S$ constitutes a strict majority over the set favoring $a$ against $c$, coalition $S$ has sufficient mass to alter the relative standing of $c$ versus $a$ under any rule where outcomes respond to aggregated support.
+
+Thus, the deviation yields an outcome $c$ that is strictly preferred by all members of $S$, contradicting the assumption that $p \in SC_F$ (coalition-proofness).
+
+Hence the assumption $F(p) \neq c$ is impossible, and we conclude:
+\[
+F(p) = c.
+\]
+\end{proof}
+
+\begin{theorem}[Plurality instability off Condorcet]
+If a Condorcet winner $c$ exists and differs from the plurality winner $a$, then truthful play is not coalition-proof under plurality.
+\end{theorem}
+\begin{proof}
+Let $S = \{i: c \succ_i a\}$. Since $c$ is Condorcet, $|S| > |\{i: a \succ_i c\}|$. Consider a joint deviation where all $i\in S$ rank $c$ first. Then $c$ obtains at least $|S|$ first-place votes, while $a$ obtains at most $|\{i: a \succ_i c\}|$, hence $c$ becomes the plurality winner. Every $i\in S$ strictly prefers $c$ to $a$, so the deviation is profitable for all members.
+\end{proof}
+
+\begin{corollary}
+The strict-consensus domain of plurality is contained in the Condorcet domain.
+\end{corollary}
+
+\begin{theorem}[Characterization of strict plurality consensus]
+A profile lies in the strict-consensus domain of plurality \textbf{iff} the plurality winner is the Condorcet winner.
+\end{theorem}
+\begin{proof}
+($\Rightarrow$) Follows from Theorem 1a. \\
+($\Leftarrow$) Follows from Theorem 1. (Let $x$ be both plurality and Condorcet winner. Suppose a coalition deviation yields $y\neq x$. Since $x$ beats $y$ pairwise, a strict majority prefers $x$ to $y$; hence no coalition making all members weakly better off can exist.)
+\end{proof}
+
+\section{Inclusion Hierarchy}
+\begin{theorem}[Strict inclusion chain]
+\[
+\text{Unanimity} \subset \text{Absolute Majority} \subset \text{Strict Plurality} \subset \text{Condorcet},
+\]
+with all inclusions strict.
+\end{theorem}
+\begin{proof}
+\begin{itemize}
+    \item Unanimity $\subset$ Majority: trivial.
+    \item Majority $\subset$ Strict Plurality: by Lemma 1 and Theorem 2.
+    \item Strict Plurality $\subset$ Condorcet: by Corollary 1.
+\end{itemize}
+Strictness follows from standard examples: (i) Condorcet without majority; (ii) plurality–Condorcet coincidence without majority; etc.
+\end{proof}
+
+\section{GS-Consensus vs Strict Consensus}
+The above hierarchy is specific to \textbf{coalitional} stability. Under \textbf{GS-consensus} (unilateral deviations), the structure changes:
+\begin{itemize}
+    \item By the Gibbard–Satterthwaite theorem, any non-dictatorial, onto rule is manipulable somewhere; thus GS-consensus domains are necessarily restricted.
+    \item For plurality, there exist profiles where truthful voting is a Nash equilibrium even when the winner is not Condorcet (e.g., due to coordination failures or pivotality considerations).
+    \item Hence, unlike strict consensus, \textbf{GS-consensus domains are not nested by Condorcet dominance}.
+\end{itemize}
+\textbf{Takeaway.} Coalition-proofness aligns plurality with Condorcet, while unilateral stability does not.
+
+\section{Discussion}
+\begin{itemize}
+    \item \textbf{Geometric view.} Each rule induces a “stability region” in preference space. Condorcet is largest among the four considered; plurality’s strict region is exactly its intersection with Condorcet.
+    \item \textbf{Mechanism insight.} Plurality fails coalition-proofness precisely when a Condorcet-majority coalition can coordinate on a single alternative.
+    \item \textbf{Design implication.} If coalition-proofness is desired, plurality inherits Condorcet consistency on its stable domain.
+\end{itemize}
+
+\section{Conclusion}
+We formalized consensus domains as equilibrium stability regions and proved that, under coalition-proofness, plurality’s stable domain collapses to the Condorcet-consistent region. The clean nesting contrasts sharply with GS-consensus, reflecting classic impossibility results and the limits of unilateral stability.
+
+\begin{thebibliography}{9}
+\bibitem{gibbard1973} Gibbard, A. (1973). Manipulation of voting schemes. \textit{Econometrica}.
+\bibitem{satterthwaite1975} Satterthwaite, M. (1975). Strategy-proofness and Arrow’s conditions. \textit{J. Econ. Theory}.
+\bibitem{bernheim1987} Bernheim, B. D., Peleg, B., \& Whinston, M. D. (1987). Coalition-proof Nash equilibria I. \textit{JET}.
+\bibitem{moulin1988} Moulin, H. (1988). \textit{Axioms of Cooperative Decision Making}.
+\bibitem{saari1994} Saari, D. (1994). \textit{Geometry of Voting}.
+\bibitem{myerson1995} Myerson, R. (1995). Axiomatic derivation of scoring rules. \textit{Social Choice and Welfare}.
+\end{thebibliography}
+
+\end{document}
