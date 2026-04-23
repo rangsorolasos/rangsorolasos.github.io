@@ -2,5 +2,5 @@
   { "name": "Kezdőlap", "url": "/" },
   { "name": "Mi ez?", "url": "/mi-ez/" },
   { "name": "Gyakran Ismételt Kérdések", "url": "/FAQ/index.html" },
-  { "name": "Próbáld ki", "url": "/proba/" }
+  { "name": "Csatlakozz!", "url": "/mobilizacio/index.html" }
 ]
