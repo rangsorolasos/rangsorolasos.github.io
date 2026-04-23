@@ -14,11 +14,17 @@ title: Arányos és rangsorolásos választást!
 
 # Rangsorolj. Számítson minden döntésed.
 
+<br/>
+<br/>
+<br/>
 <a class="cta" href="https://szirbucz.github.io/valasztas/" target="_blank" rel="noopener noreferrer">
     Próbáld ki
   </a>
 </div>
 
+<br/>
+<br/>
+<br/>
 
 # Miből van elegünk?
 
