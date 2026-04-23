@@ -1,3 +1,8 @@
+---
+layout: layout.njk
+title: Arányos és rangsorolásos választást!
+---
+
 # Rangsorolj. Nincs elveszett szavazat
 
 * Túlhatalom helyett arányos képviselet.
