@@ -1,7 +1,7 @@
 
 REMOTE_USER = mag
 REMOTE_HOST = server
-REMOTE_PATH = /var/www/reform/aranyos-rangsorolasos
+REMOTE_PATH = /var/www/reform
 
 PANDOC = pandoc
 PANDOC_FLAGS = -s --mathjax
@@ -10,19 +10,17 @@ MD_FILES = $(wildcard *.md)
 
 HTML_FILES = $(MD_FILES:.md=.html)
 
-all: $(HTML_FILES)
+deploy: compile
+	git add --all && git commit && git push
 
 
-deploy: all
-	rsync -avz --delete \
+test: compile
+	rsync -avz \
 			--exclude='Makefile' \
 			--exclude='.*' \
-			./ $(REMOTE_USER)@$(REMOTE_HOST):$(REMOTE_PATH)/;
+			./docs/ $(REMOTE_USER)@$(REMOTE_HOST):$(REMOTE_PATH)/;
 
-%.html: %.md
-	$(PANDOC) $(PANDOC_FLAGS) -o $@ $<
-
-clean:
-	rm -f $(HTML_FILES)
+compile:
+	npm run build
 
 .PHONY: all clean
