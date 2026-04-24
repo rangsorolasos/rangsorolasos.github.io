@@ -12,24 +12,21 @@ OUTPUT_FILE = 'sheet_row_count.txt'
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
 def main():
-    # Authenticate with the service account
     creds = Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
     client = gspread.authorize(creds)
-
-    # Open the sheet (by name or ID)
-    sheet = client.open(SPREADSHEET_NAME_OR_ID).sheet1
-
-    # Get all values and count rows (excluding empty rows at bottom)
+    
+    # Open directly by ID – no name lookup, no extra permissions needed
+    sheet = client.open_by_key(SPREADSHEET_NAME_OR_ID).sheet1
+    
     all_values = sheet.get_all_values()
-    # Remove trailing empty rows if you want only rows with data
     non_empty_rows = [row for row in all_values if any(cell.strip() for cell in row)]
     row_count = len(non_empty_rows)
-
-    # Write the count to the output file
+    
     with open(OUTPUT_FILE, 'w') as f:
         f.write(str(row_count))
+    
+    print(non_empty_rows)
 
-    # Optional: also print to console for debugging
     print(f"Row count: {row_count}")
 
 if __name__ == "__main__":
