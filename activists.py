@@ -7,7 +7,9 @@ import json
 # CONFIGURATION
 SERVICE_ACCOUNT_FILE = os.path.expanduser('~/.serviceaccount.json')
 SPREADSHEET_ID_ACTIVISTS = '1_UIuKEmZN5Nrc-wRzRf_cMEAeP8qRkcZjte_90f5zqU'
-OUTPUT_FILE = os.path.expanduser('~/_data/activists.json')
+SPREADSHEET_ID_SOCIAL = '13E2CEM18F0TXj8oXUQdHpciS52kiazxZaKwSSQyj-E0'
+OUTPUT_ACTIVISTS = os.path.expanduser('~/_data/activists.json')
+OUTPUT_SOCIAL = os.path.expanduser('~/_data/social.json')
 
 # Scopes for read-only access
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
@@ -37,13 +39,37 @@ def get_table(client,tableId):
   non_empty_rows = [row for row in all_values if any(cell.strip() for cell in row)]
   return non_empty_rows
 
-def main():
-    client = get_client()
-    non_empty_rows = get_table(client,SPREADSHEET_ID_ACTIVISTS)
+def save_count(client,tableId,outputFile):
+    non_empty_rows = get_table(client,tableId)
     row_count = len(non_empty_rows)-1
     
-    with open(OUTPUT_FILE, 'w') as f:
+    with open(outputFile, 'w') as f:
         f.write(f"""{{ "count": {row_count} }}""")
     
+
+def save_all(client,tableId,outputFile):
+	data = get_table(client,tableId)
+	row_count = len(data)-1
+	headers = data[0]
+	records = []
+	for row in data[1:]:
+	    record = {}
+	    for i, value in enumerate(row):
+	        # Ha az érték üres string, opcionálisan átalakíthatjuk None-ra (itt megtartjuk üres stringként)
+	        record[headers[i]] = value
+	    records.append(record)
+	
+	# JSON konvertálás (sort_keys=False, ensure_ascii=False a magyar ékezetes karakterekhez)
+	result = {'count': row_count, 'records': records}
+	json_output = json.dumps(result, ensure_ascii=False, indent=2)
+
+	with open(outputFile, 'w') as f:
+		f.write(json_output)
+    
+
+def main():
+    client = get_client()
+    save_count(client,SPREADSHEET_ID_ACTIVISTS, OUTPUT_ACTIVISTS)
+    save_all(client,SPREADSHEET_ID_SOCIAL, OUTPUT_SOCIAL)
 if __name__ == "__main__":
     main()

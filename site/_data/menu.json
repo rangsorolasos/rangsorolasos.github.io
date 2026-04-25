@@ -1,5 +1,6 @@
 [
   { "name": "Kezdőlap", "url": "/" },
+  { "name": "Mit Szeretnénk?", "url": "/miez/index.html" },
   { "name": "Gyakran Ismételt Kérdések", "url": "/FAQ/index.html" },
   { "name": "Csatlakozz!", "url": "/mobilizacio/index.html" },
   { "name": "Kapcsolat", "url": "/kapcsolat/index.html" }
