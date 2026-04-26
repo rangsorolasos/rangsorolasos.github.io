@@ -1,6 +1,9 @@
-# 1. fázis: (0-6 hónap) Maghálózat és decentralizált működésű „gyártó kapacitás” felépítése, amely képes:
+---
+layout: layout.njk
+title: kampányterv első fázis
+---
 
-# Összefoglalás
+# 1. fázis: (- 2026 szeptember) Maghálózat és decentralizált működésű „gyártó kapacitás” felépítése, amely képes:
 
 * egyszerűen elmagyarázni a rangsorolásos szavazást
 * bemutatni azt gyakorlatban

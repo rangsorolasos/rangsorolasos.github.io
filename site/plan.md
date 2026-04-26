@@ -1,3 +1,8 @@
+---
+layout: layout.njk
+title: Kampányterv
+---
+
 # Kampányterv: Arányos és ransorolásos választást!
 
 ## Cél
@@ -52,7 +57,7 @@ A hangsúly az alapelveken van: **arányosság, rangsorolás, tisztességesség.
 
 ## Stratégiai áttekintés
 
-### 1. fázis: (0-6 hónap) Maghálózat és decentralizált működésű „gyártó kapacitás” felépítése, amely képes:
+### 1. fázis: (-2026 szeptember) Maghálózat és decentralizált működésű „gyártó kapacitás” felépítése, amely képes:
 
 * egyszerűen elmagyarázni a rangsorolásos szavazást
 * bemutatni azt gyakorlatban
@@ -72,7 +77,7 @@ A cél: 20-50 elkötelezett szervező bevonása, **kézzelfogható outputok** le
 **Alapelv:**
 Decentralizált működés, egységes üzenetekkel
 
-### 2. fázis: Társadalmi edukáció (6–18 hónap)
+### 2. fázis: Társadalmi edukáció (2026 szeptember -)
 
 Cél: a rangsorolásos szavazás közérthetővé tétele
 
@@ -87,7 +92,7 @@ Cél: a rangsorolásos szavazás közérthetővé tétele
 **Alapszabály:**
 Az emberek csinálva értik meg, nem elméletből
 
-### 3. fázis: Hitelesség építése (párhuzamosan)
+### 3. fázis: Hitelesség építése (2026 szeptember -)
 
 Cél: a reform nemzeti ügyként való pozicionálása
 
@@ -101,7 +106,7 @@ Bevonandók:
 **Keret:**
 „A demokrácia működési feltételeinek megújítása”
 
-### 4. fázis: Politikai beemelés (18–36 hónap)
+### 4. fázis: Politikai beemelés (2027 március - )
 
 Cél: társadalmi igényből politikai döntés
 
@@ -185,20 +190,21 @@ Bizalomalapú, decentralizált együttműködés
 
 ## Időzítés
 
-**1. év**
+**-2026 szeptember**
 
 * hálózatépítés
 * edukáció indítása
 * téma bevezetése a közbeszédbe
 
-**2. év**
-
+**2026 szeptember - 2027 március
 * láthatóság növelése
 * támogatók bevonása
 * politikai napirendre kerülés
+* szakmai/politikai egyeztetés (szakértői team, minden releváns játékos bevonásával)
 
-**3. év**
+**2026 március-**
 
+* normaszöveg elkészítése
 * jogalkotási nyomásgyakorlás
 
 ## Kockázatok és kezelésük
@@ -208,6 +214,8 @@ Bizalomalapú, decentralizált együttműködés
 
 **Pártpolitikai besorolás**
 → következetesen rendszerfókuszú keretezés
+
+"Nem állunk be egy párt mögé sem, de ők beállhatnak mögénk"
 
 **Üzenetszéttöredezés**
 → három fő üzenethez való ragaszkodás
