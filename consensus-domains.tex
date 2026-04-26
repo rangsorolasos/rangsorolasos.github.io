@@ -3,14 +3,16 @@
 \usepackage[utf8]{inputenc}
 
 % Theorem environments
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{definition}[theorem]{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{observation}{Observation}
 
 \title{Consensus Domains as Equilibrium Stability Regions of Voting Rules}
-\author{}
+\author{Árpád Magosányi}
 \date{}
 
 \begin{document}
@@ -18,19 +20,22 @@
 \maketitle
 
 \begin{abstract}
-We interpret voting rules as inducing strategic games and study \textbf{consensus domains} as subsets of preference profiles where outcomes are stable under equilibrium notions. We distinguish \textbf{GS-consensus} (no profitable unilateral deviation) and \textbf{strict consensus} (no profitable coalitional deviation). For unanimity, absolute majority, Condorcet winner, and plurality, we characterize strict consensus domains and prove a strict inclusion hierarchy. Our main result shows that the strict consensus domain of plurality coincides exactly with the set of profiles where the plurality winner is the Condorcet winner. We contrast this with GS-consensus, where such nesting breaks, in line with classic impossibility results including the Gibbard–Satterthwaite theorem.
+We interpret voting rules as inducing strategic games and study \textbf{consensus domains} as subsets of preference profiles with outcomes under specific voting rules. We distinguish \textbf{simple consensus} requiring only existence of outcome and \textbf{strict consensus} (no profitable coalitional deviation). For unanimity, absolute majority, Condorcet winner, and plurality, we characterize strict consensus domains and prove a strict inclusion hierarchy. Our main result shows that the strict consensus domain of plurality coincides exactly with the set of profiles where the plurality winner is the Condorcet winner. We interpret the Gibbard–Satterthwaite theorem based on the notion of consensus.
 
-Important conclusion: good voter interaction can turn a plurality vote to a Condorcet vote. Just do a pre-election using Condorcet and let everyone who prefers the Condorcet winner over the plurality winner vote for the Condorcet winner.
+Using our consensus definitions we define "plural dictatorship" as a set of preference profiles, and offer an actionable observation:
+\emph{In plural dictatorship, finding the Condorcet consensus (either informally as it happened in Hungary before the 2026 parliamentary elections, or semiformally with an activist-led preelection vote), and tactically voting to the Condorcet winner can turn the plural dictatorship into democracy.}
+
 \end{abstract}
 
 \section{Introduction}
 A voting rule aggregates preferences into a social choice. When voters are strategic, each rule induces a game. A natural question is: \textbf{for which preference profiles is the outcome stable against manipulation?} We formalize this via \emph{consensus domains}, defined relative to equilibrium concepts.
 
-Our contribution is threefold:
+Our contribution:
 \begin{enumerate}
-    \item Define GS- and strict-consensus domains for voting rules as equilibrium stability regions.
-    \item Characterize strict-consensus domains for unanimity, majority, Condorcet, and plurality.
+    \item Define simple and strict consensus domains for voting rules as equilibrium stability regions.
+    \item Characterize strict consensus domains for unanimity, majority, Condorcet, and plurality.
     \item Establish a strict inclusion hierarchy and show that \textbf{plurality’s strict domain equals its intersection with the Condorcet domain}.
+    \item Define plural dictatorship based on consensus domains, and offer an actionable insight to turn it into democracy
 \end{enumerate}
 
 \section{Model}
@@ -45,7 +50,7 @@ We study:
     \item \textbf{Unanimity}: selects $x$ if all voters rank $x$ first.
     \item \textbf{Absolute majority}: selects $x$ if it has $> n/2$ first-place votes.
     \item \textbf{Condorcet rule}: selects the Condorcet winner if it exists.
-    \item \textbf{Plurality}: selects the alternative with the most first-place votes (ties broken arbitrarily).
+    \item \textbf{Plurality}: selects the alternative with the most first-place votes.
 \end{itemize}
 
 \section{Strategic Form and Equilibria}
@@ -64,12 +69,12 @@ where outcomes are $F(b)$ and utilities $u_i$ represent $\succ_i$.
 We use these as stability notions for defining consensus domains.
 
 \section{Consensus Domains}
-\begin{definition}[GS-consensus domain]
-A profile $p$ lies in the GS-consensus domain of $F$ if truthful reporting is a Nash equilibrium of $G(F,p)$ yielding a (non-null) winner.
+\begin{definition}[simple consensus domain]
+A profile $p$ lies in the simple consensus domain of $F$ if truthful reporting yields a (non-null) winner.
 \end{definition}
 
-\begin{definition}[Strict-consensus domain]
-A profile $p$ lies in the strict-consensus domain of $F$ if truthful reporting is a coalition-proof equilibrium of $G(F,p)$ yielding a (non-null) winner.
+\begin{definition}[strict consensus domain]
+A profile $p$ lies in the strict consensus domain of $F$ if truthful reporting is a coalition-proof equilibrium of $G(F,p)$ yielding a (non-null) winner.
 \end{definition}
 
 \section{Basic Facts}
@@ -77,7 +82,7 @@ A profile $p$ lies in the strict-consensus domain of $F$ if truthful reporting i
 If $x$ has $> n/2$ first-place votes, then $x$ beats every $y\neq x$ pairwise, hence is the Condorcet winner.
 \end{lemma}
 \begin{proof}
-Immediate by counting.
+The majority winner pairwise beats all other candidates.
 \end{proof}
 
 \section{Strict Consensus: Characterization}
@@ -95,8 +100,8 @@ Profiles with an absolute majority winner lie in the strict-consensus domains of
 Let $x$ have $> n/2$ first-place votes. Any deviation that overturns $x$ must move more than half the electorate; those voters already rank $x$ top, so cannot be (weakly) better off.
 \end{proof}
 
-\begin{theorem}[Strict-consensus + Condorcet implies Condorcet outcome]
-Let $F$ be a voting rule and let $p$ be a preference profile. If
+\begin{theorem}[Strict plurality consensus + Condorcet implies Condorcet outcome]
+Let $F$ be the pluralitthe plurality voting rule and let $p$ be a preference profile. If
 \begin{itemize}
     \item $p \in SC_F$ (i.e. $p$ lies in the strict-consensus domain of $F$, meaning truthful reporting is coalition-proof under $F$), and
     \item $p \in CW$ (i.e. a Condorcet winner exists at $p$),
@@ -152,7 +157,7 @@ The strict-consensus domain of plurality is contained in the Condorcet domain.
 A profile lies in the strict-consensus domain of plurality \textbf{iff} the plurality winner is the Condorcet winner.
 \end{theorem}
 \begin{proof}
-($\Rightarrow$) Follows from Theorem 1a. \\
+($\Rightarrow$) Follows from Theorem 2. \\
 ($\Leftarrow$) Follows from Theorem 1. (Let $x$ be both plurality and Condorcet winner. Suppose a coalition deviation yields $y\neq x$. Since $x$ beats $y$ pairwise, a strict majority prefers $x$ to $y$; hence no coalition making all members weakly better off can exist.)
 \end{proof}
 
@@ -172,14 +177,63 @@ with all inclusions strict.
 Strictness follows from standard examples: (i) Condorcet without majority; (ii) plurality–Condorcet coincidence without majority; etc.
 \end{proof}
 
-\section{GS-Consensus vs Strict Consensus}
-The above hierarchy is specific to \textbf{coalitional} stability. Under \textbf{GS-consensus} (unilateral deviations), the structure changes:
+\begin{conjecture}
+There is a weakest strict consensus, and it is the Condorcet consensus.
+\end{conjecture}
+
+I did not prove it yet, but given that the proof of the Gibbard-Shattertwaite theorem uses Condorcet cycles, it seems provable.
+
+
+\begin{observation}[For any deterministic voting rule with more than two outcomes, there is a domain where there is no strict consensus.]
+\end{observation} 
+
+This is just the rewording of the Gibbard-Shattertwaite theorem using our consensus notion.
+
+\begin{corollary}[No point of looking for consensus using voting where there isn't one]
+\end{corollary} 
+
+This trivially follows from the above. When there is no consensus, one should be forged by discussions.
+
+\begin{definition}[Strict plural dictatorship]
+
+$\text{Plural dictatorship} = \text{Condorcet agreement} \setminus \text{Plurality agreement},$
+
+\end{definition}
+
+Plural dictatorship is the rule of the few ($\{i: a \succ_i c\}$) over the many ($\{j: c \succ_j a\}$). Where $c$ is the Condorcet winner, and $a$ is the honest plurality winner.
+
+\begin{observation}[Omissional plural dictatorship]
+\end{observation}
+
+We can talk about omissional plural dictatorship as well. It happens in a system with repeated plural voting, when voters eliminate all candidates using tactical voting such that the ballot only contains candidates which are below the "none of above" candidate of the original candidate set.
+
+A formal definition of omissional plural dictatorship needs a model which considers shift of platform for candidates and voters - so a discussion of Duverger's law in a framework considering both candidate and voter behaviour is possible.
+
+
+Given the different forms of plural dictatorship, the following questions need further research:
 \begin{itemize}
-    \item By the Gibbard–Satterthwaite theorem, any non-dictatorial, onto rule is manipulable somewhere; thus GS-consensus domains are necessarily restricted.
+\item how and when the plural rule results in simple and omissional plural dictatorship, and
+\item are there cases when the plural rule does not lead to one of the above kind of dictatorships, and what are the conditions for them?
+\end{itemize}
+
+Probably the second question is moot, as we can use voting rules not leading to dictatorship.
+
+
+\begin{observation}[Plural dictatorship can be overthrown by coordination]
+\end{observation} 
+It is an interpretation of Theorem 2.
+
+This happened in Hungary in the 2026 parliamentary elections. In this case the Condorcet winner was determined using informal ways. But an activist-led preelection can determine the Condorcet winner, and the voters can coordinate accordingly. Note that this is a mathematical result, with conditions. In 2022 the Hungarian public did make a preelection and its winner was the Condorcet winner among the voters of the preelection. But the winner was not the Condorcet winner among all woters of the real election (probably due to lack of coordination and bad campaign strategy).
+
+\section{Simple Consensus vs Strict Consensus}
+The above hierarchy is specific to \textbf{coalitional} stability. Under \textbf{simple consensus}, the structure changes:
+\begin{itemize}
+    \item By the Gibbard–Satterthwaite theorem, any non-dictatorial, onto rule is manipulable somewhere; thus simple consensus domains are necessarily restricted.
     \item For plurality, there exist profiles where truthful voting is a Nash equilibrium even when the winner is not Condorcet (e.g., due to coordination failures or pivotality considerations).
-    \item Hence, unlike strict consensus, \textbf{GS-consensus domains are not nested by Condorcet dominance}.
+    \item Hence, unlike strict consensus, \textbf{simple consensus domains are not nested by Condorcet dominance}.
 \end{itemize}
 \textbf{Takeaway.} Coalition-proofness aligns plurality with Condorcet, while unilateral stability does not.
+
 
 \section{Discussion}
 \begin{itemize}
@@ -189,7 +243,18 @@ The above hierarchy is specific to \textbf{coalitional} stability. Under \textbf
 \end{itemize}
 
 \section{Conclusion}
-We formalized consensus domains as equilibrium stability regions and proved that, under coalition-proofness, plurality’s stable domain collapses to the Condorcet-consistent region. The clean nesting contrasts sharply with GS-consensus, reflecting classic impossibility results and the limits of unilateral stability.
+We formalized consensus domains as equilibrium stability regions and proved that, under coalition-proofness, plurality’s stable domain collapses to the Condorcet-consistent region. The clean nesting contrasts sharply with simple consensus, reflecting classic impossibility results and the limits of unilateral stability.
+
+We also found ideological results based on social choice theory proofs:
+
+\begin{itemize}
+    \item The notion of simple and omissional plural dictatorship
+    \item The way to overthrow simple plural dictatorship
+    \item The observation that when there is no consensus, there is no point for looking for one using vote, but one should be forged through discussions.
+\end{itemize}
+
+Further research is needed into the properties of simple and omissional plural dictatorship, and the ways to prevent and overthrow them.
+
 
 \begin{thebibliography}{9}
 \bibitem{gibbard1973} Gibbard, A. (1973). Manipulation of voting schemes. \textit{Econometrica}.
