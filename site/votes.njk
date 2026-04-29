@@ -1,0 +1,21 @@
+---
+layout: layout.njk
+title: Lebonyolított szavazások
+---
+
+<h1>Lebonyolított szavazások</h1>
+
+<ul class="press-list">
+  {% for item in votes.records %}
+  <li class="press-item">
+    <div class="press-title">
+      <a href="{{ item.URL }}" target="_blank" rel="noopener noreferrer">
+        {{ item.title }}
+      </a>
+    </div>
+    <div class="press-meta">
+      <span class="press-domain">{{ item.description }}</span>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
