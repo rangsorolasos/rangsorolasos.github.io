@@ -1,0 +1,22 @@
+---
+layout: layout.njk
+title: Sajtófigyelő
+---
+
+<h1>Sajtófigyelő</h1>
+
+<ul class="press-list">
+  {% for item in social.records %}
+  <li class="press-item">
+    <div class="press-title">
+      <a href="{{ item.URL }}" target="_blank" rel="noopener noreferrer">
+        {{ item.Cím }}
+      </a>
+    </div>
+    <div class="press-meta">
+      <span class="press-domain">{{ item.domain }}</span>
+      <span class="press-date">{{ item.timestamp }}</span>
+    </div>
+  </li>
+  {% endfor %}
+</ul>

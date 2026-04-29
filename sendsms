@@ -1,0 +1,51 @@
+#!/usr/bin/python3
+import json
+import subprocess
+import time
+import sys
+import os
+
+ACTIVIST_LIST = os.path.expanduser('~/Private/.activists.json')
+DELAY_SECONDS = 3
+
+def load_message(path):
+    with open(path, "r", encoding="utf-8") as f:
+        return f.read().strip()
+
+def load_numbers(path):
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+def send_sms(device,number, message):
+    try:
+        subprocess.run(
+            ["kdeconnect-cli", "-n", device, "--destination", number, "--send-sms", message],
+            check=True
+        )
+        print(f"Sent to {number}")
+    except subprocess.CalledProcessError as e:
+        print(f"Failed to send to {number}: {e}")
+
+def main():
+    print(sys.argv)
+    if len(sys.argv)!=3:
+        print("usage: sendsms device messagefile")
+        sys.exit(-1)
+    device = sys.argv[1]
+    message = load_message(sys.argv[2])
+    activists = load_numbers(ACTIVIST_LIST)['records']
+    print(activists)
+
+    for record in activists:
+        number = record.get("sms", "").strip()
+        name = record.get('Hogyan nevezhetünk?',"<no name>").strip()
+        print(f"""{name}: {number}""")
+
+        if not number:
+            continue  # skip empty sms field
+
+        send_sms(device,number, message)
+        time.sleep(DELAY_SECONDS)
+
+if __name__ == "__main__":
+    main()

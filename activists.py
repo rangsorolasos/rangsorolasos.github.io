@@ -3,29 +3,48 @@ import gspread
 from google.oauth2.service_account import Credentials
 import os
 import json
+from urllib.parse import urlparse
 
 # CONFIGURATION
 SERVICE_ACCOUNT_FILE = os.path.expanduser('~/.serviceaccount.json')
 SPREADSHEET_ID_ACTIVISTS = '1_UIuKEmZN5Nrc-wRzRf_cMEAeP8qRkcZjte_90f5zqU'
 SPREADSHEET_ID_SOCIAL = '13E2CEM18F0TXj8oXUQdHpciS52kiazxZaKwSSQyj-E0'
 OUTPUT_ACTIVISTS = os.path.expanduser('~/_data/activists.json')
+OUTPUT_ACTIVIST_LIST = os.path.expanduser('~/Private/.activists.json')
 OUTPUT_SOCIAL = os.path.expanduser('~/_data/social.json')
 
 # Scopes for read-only access
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
 def table_to_json(data):
-	headers = data[0]
-	records = []
-	
-	for row in data[1:]:
-	    record = {}
-	    for i, value in enumerate(row):
-	        record[headers[i]] = value
-	    records.append(record)
-	
-	json_output = json.dumps(records, ensure_ascii=False, indent=2)
-	return json_output
+  headers = data[0]
+  records = []
+  
+  for row in data[1:]:
+      record = {}
+      for i, value in enumerate(row):
+          record[headers[i]] = value
+      records.append(record)
+  
+  json_output = json.dumps(records, ensure_ascii=False, indent=2)
+  return json_output
+
+
+def extract_domain(url: str) -> str:
+    """
+    Kinyeri a domain nevet az URL-ből (pl. 'https://www.example.com/path' -> 'example.com').
+    www. előtag eltávolítva.
+    Hibás URL esetén üres stringet ad vissza.
+    """
+    try:
+        parsed = urlparse(url)
+        hostname = parsed.hostname or ""
+        # www. eltávolítása, ha jelen van
+        if hostname.startswith("www."):
+            hostname = hostname[4:]
+        return hostname
+    except Exception:
+        return ""
 
 def get_client():
   creds = Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
@@ -48,28 +67,29 @@ def save_count(client,tableId,outputFile):
     
 
 def save_all(client,tableId,outputFile):
-	data = get_table(client,tableId)
-	row_count = len(data)-1
-	headers = data[0]
-	records = []
-	for row in data[1:]:
-	    record = {}
-	    for i, value in enumerate(row):
-	        # Ha az érték üres string, opcionálisan átalakíthatjuk None-ra (itt megtartjuk üres stringként)
-	        record[headers[i]] = value
-	    records.append(record)
-	
-	# JSON konvertálás (sort_keys=False, ensure_ascii=False a magyar ékezetes karakterekhez)
-	result = {'count': row_count, 'records': records}
-	json_output = json.dumps(result, ensure_ascii=False, indent=2)
+ data = get_table(client,tableId)
+ row_count = len(data)-1
+ headers = data[0]
+ records = []
+ for row in data[1:]:
+   record = {}
+   for i, value in enumerate(row):
+    if headers[i] == "URL":
+     record['domain'] = extract_domain(value)
+    record[headers[i]] = value
+   records.append(record)
+  
+ result = {'count': row_count, 'records': records}
+ json_output = json.dumps(result, ensure_ascii=False, indent=2)
 
-	with open(outputFile, 'w') as f:
-		f.write(json_output)
+ with open(outputFile, 'w') as f:
+    f.write(json_output)
     
 
 def main():
     client = get_client()
     save_count(client,SPREADSHEET_ID_ACTIVISTS, OUTPUT_ACTIVISTS)
+    save_all(client,SPREADSHEET_ID_ACTIVISTS, OUTPUT_ACTIVIST_LIST)
     save_all(client,SPREADSHEET_ID_SOCIAL, OUTPUT_SOCIAL)
 if __name__ == "__main__":
     main()
