@@ -5,7 +5,6 @@ import time
 import sys
 import os
 
-ACTIVIST_LIST = os.path.expanduser('~/Private/.activists.json')
 DELAY_SECONDS = 3
 
 def load_message(path):
@@ -28,12 +27,13 @@ def send_sms(device,number, message):
 
 def main():
     print(sys.argv)
-    if len(sys.argv)!=3:
-        print("usage: sendsms device messagefile")
+    if len(sys.argv)!=4:
+        print("usage: sendsms device messagefile activistlist")
         sys.exit(-1)
     device = sys.argv[1]
     message = load_message(sys.argv[2])
-    activists = load_numbers(ACTIVIST_LIST)['records']
+    activistList = sys.argv[3]
+    activists = load_numbers(activistList)['records']
     print(activists)
 
     for record in activists:
