@@ -5,29 +5,29 @@
       "Időbélyeg": "2026.04.28. 12:25:32",
       "ki": "magwas",
       "mit": "Megegyezés Puzsér Robival",
-      "descriptiopn": "Robi megígérte, hogy az április 30.-ai adás az arányos és rangsorolásos szavazásról fog szólni, és később lesz vita, amibe behív"
+      "descriptiopn": "Robi megígérte, hogy az április 30.-ai adás az arányos és rangsorolásos szavazásról fog szólni, és később lesz vita, amibe behív",
       "importance": "high"
     },
     {
       "Időbélyeg": "2026.04.29. 6:46:05",
       "ki": "Megya",
       "mit": "szórólap design",
-      "descriptiopn": "A szórólap design színezése és a rajta lévő url"
+      "descriptiopn": "A szórólap design színezése és a rajta lévő url",
       "importance": "low"
     },
     {
       "Időbélyeg": "2026.04.29. 6:46:05",
       "ki": "Megya",
       "mit": "domainnév",
-      "descriptiopn": "megszereztük a valasztast.hu domaint"
+      "descriptiopn": "megszereztük a valasztast.hu domaint",
       "importance": "low"
     },
     {
       "Időbélyeg": "2026.04.29. 6:46:05",
       "ki": "szirbucz",
       "mit": "teszt app",
-      "descriptiopn": "App, amivel választást lehet modellezni az 1Xes és rangsorolásos eredményt összehasonlítva. https://szirbucz.github.io/valasztas/"
+      "descriptiopn": "App, amivel választást lehet modellezni az 1Xes és rangsorolásos eredményt összehasonlítva. https://szirbucz.github.io/valasztas/",
       "importance": "high"
-    },
+    }
   ]
 }
