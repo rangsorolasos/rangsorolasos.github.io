@@ -10,8 +10,14 @@ MD_FILES = $(wildcard *.md)
 
 HTML_FILES = $(MD_FILES:.md=.html)
 
-deploy: compile
-	git add --all && git commit && git push
+
+update:
+	git fetch origin
+	git merge origin/develop
+	./update-data.py
+
+deploy: update compile
+	git add --all && git commit ; git push
 
 
 test: compile
