@@ -4,3 +4,4 @@ package-lock.json
 *.aux
 *.log
 *.dvi
+docs

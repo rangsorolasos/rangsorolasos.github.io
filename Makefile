@@ -17,6 +17,7 @@ update:
 	./update-data.py
 
 deploy: update compile
+	cp -r Downloads docs/
 	git add --all && git commit ; git push
 
 
