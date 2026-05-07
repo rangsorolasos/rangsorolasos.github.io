@@ -1,0 +1,119 @@
+\documentclass[a4paper]{article}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{tikz}
+\usepackage{qrcode}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{calc}
+
+% Default values
+\providecommand{\titletext}{Sample Ballot}
+\providecommand{\id}{VOTE-000001}
+\providecommand{\numsupport}{3}
+\providecommand{\candidates}{Alice, Bob, Charlie, David}
+
+\newcommand{\checkboxraise}{-0.5ex}
+\newcommand{\checkbox}{%
+  \raisebox{\checkboxraise}{%
+    \begin{tikzpicture}\draw (0,0) rectangle (0.3,0.3);\end{tikzpicture}%
+  }%
+}
+
+% Fiducial marker: 1cm black square with 0.5cm white inner square
+\newcommand{\fiducial}{%
+  \begin{tikzpicture}[scale=0.5]
+    \fill (0,0) rectangle (2,2);
+    \fill[white] (0.5,0.5) rectangle (1.5,1.5);
+  \end{tikzpicture}%
+}
+
+% Column widths
+\newlength{\firstcol}
+\newlength{\othercol}
+\setlength{\firstcol}{0.5\textwidth}
+\setlength{\othercol}{(\textwidth - \firstcol - 2\tabcolsep*(3+\numsupport+1) - \arrayrulewidth*(3+\numsupport+2))/(3+\numsupport-1)}
+\ifdim\othercol<1pt\setlength{\othercol}{0.5cm}\fi
+
+% Header
+\ifcase\numsupport
+  \newcommand{\header}{%
+    \multirow{2}{*}{Candidate} & \multirow{2}{*}{Oppose} & \\
+    & & \\
+  }
+\or % 1
+  \newcommand{\header}{%
+    \multirow{2}{*}{Candidate} & \multirow{2}{*}{Oppose} & & \multicolumn{1}{c}{Support} \\
+    & & & \multicolumn{1}{c}{strongly} \\
+  }
+\or % 2
+  \newcommand{\header}{%
+    \multirow{2}{*}{Candidate} & \multirow{2}{*}{Oppose} & & \multicolumn{2}{c}{Support} \\
+    & & & a bit & strongly \\
+  }
+\or % 3
+  \newcommand{\header}{%
+    \multirow{2}{*}{Candidate} & \multirow{2}{*}{Oppose} & & \multicolumn{3}{c}{Support} \\
+    & & & a bit & & strongly \\
+  }
+\or % 4
+  \newcommand{\header}{%
+    \multirow{2}{*}{Candidate} & \multirow{2}{*}{Oppose} & & \multicolumn{4}{c}{Support} \\
+    & & & a bit & & & strongly \\
+  }
+\or % 5
+  \newcommand{\header}{%
+    \multirow{2}{*}{Candidate} & \multirow{2}{*}{Oppose} & & \multicolumn{5}{c}{Support} \\
+    & & & a bit & & & & strongly \\
+  }
+\fi
+
+% Row macro
+\ifcase\numsupport
+  \def\row#1{#1 & \checkbox & & \\ \hline}
+\or
+  \def\row#1{#1 & \checkbox & & \checkbox \\ \hline}
+\or
+  \def\row#1{#1 & \checkbox & & \checkbox & \checkbox \\ \hline}
+\or
+  \def\row#1{#1 & \checkbox & & \checkbox & \checkbox & \checkbox \\ \hline}
+\or
+  \def\row#1{#1 & \checkbox & & \checkbox & \checkbox & \checkbox & \checkbox \\ \hline}
+\or
+  \def\row#1{#1 & \checkbox & & \checkbox & \checkbox & \checkbox & \checkbox & \checkbox \\ \hline}
+\fi
+
+\makeatletter
+\newcommand{\addrows}[1]{%
+  \@for\candidate:=#1\do{%
+    \expandafter\row\expandafter{\candidate}%
+  }%
+}
+\makeatother
+
+% Single ballot content with markers at 5mm from edges
+\newcommand{\ballotcontent}{%
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north west, inner sep=0pt, xshift=5mm, yshift=-5mm] at (current page.north west) {\fiducial};
+    \node[anchor=north east, inner sep=0pt, xshift=-5mm, yshift=-5mm] at (current page.north east) {\fiducial};
+    \node[anchor=south west, inner sep=0pt, xshift=5mm, yshift=5mm] at (current page.south west) {\fiducial};
+    \node[anchor=south east, inner sep=0pt, xshift=-5mm, yshift=5mm] at (current page.south east) {\fiducial};
+  \end{tikzpicture}%
+  \begin{center}
+    {\Large \textbf{\titletext}}\\[6pt]
+    \qrcode[height=1.5cm]{\id}\\[2pt]
+    {\small Ballot ID: \id}\\[12pt]
+  \end{center}
+  \begin{center}
+    \begin{tabular}{
+      >{\centering\arraybackslash}p{\firstcol}
+      *{\numexpr2+\numsupport\relax}{>{\centering\arraybackslash}p{\othercol}}
+    }
+    \header
+    \addrows{\candidates}
+    \end{tabular}
+  \end{center}
+}
+
+\begin{document}
+\ballotcontent
+\end{document}
