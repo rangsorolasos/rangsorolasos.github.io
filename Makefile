@@ -27,6 +27,13 @@ test: compile
 			--exclude='.*' \
 			./docs/ $(REMOTE_USER)@$(REMOTE_HOST):$(REMOTE_PATH)/;
 
+megyatest: compile
+	cp -r Downloads docs/
+	rsync -avz \
+			--exclude='Makefile' \
+			--exclude='.*' \
+			./docs/ /var/www/megya
+
 compile:
 	npm run build
 
