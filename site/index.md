@@ -1,6 +1,6 @@
 ---
 layout: layout.njk
-title: Arányos és rangsorolásos választást!
+title: Arányos és rangsoroló választást!
 ---
 
 # Rangsorolj. Nincs elveszett szavazat
