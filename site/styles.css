@@ -11,6 +11,17 @@ body {
   color: #2A2A2A;
 }
 
+a {
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+}
+
+h1 {
+  margin-top: 1ex;
+  margin-bottom: 1ex;
+}
+
 /* NAVBAR */
 .navbar {
   display: flex;
@@ -21,16 +32,13 @@ body {
   color: white;
 }
 
-.logo a {
-  font-weight: bold;
+.logo {
   color: white;
-  text-decoration: none;
   font-size: 18px;
 }
 
 .menu a {
   color: white;
-  text-decoration: none;
   margin-left: 20px;
   font-size: 14px;
 }
@@ -87,6 +95,12 @@ body {
   border-radius: 6px;
 }
 
+.main_cta {
+  margin-top: 3em;
+  margin-bottom: 3em;
+  text-align: center;
+}
+
 /* CONTENT */
 .content {
   max-width: 900px;
@@ -140,7 +154,14 @@ body {
       }
     }
 
-ul, ol {
+ul, ol, dl {
   padding-left: 1.5rem; 
 }
 
+dt {
+  font-weight: bold;
+}
+
+dd {
+  padding-left: 1em;
+}
