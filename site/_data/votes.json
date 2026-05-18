@@ -2,9 +2,9 @@
   "count": 1,
   "records": [
     {
-      "title": "Kabai szavazás",
-      "URL": "https://reform.kodekonveyor.com/kaba/index.html",
-      "description": "Kabán a helyi Tisza-sziget készített egy felmérést arról, hogy a helyieknek milyen ügyek a legfontosabbak."
+      "title": "Kabai felmérés",
+      "URL": "/kaba/index.html",
+      "description": "Kabán a helyi Tisza-sziget készített egy felmérést arról, hogy a helyieknek mely ügyek a legfontosabbak."
     }
   ]
 }
