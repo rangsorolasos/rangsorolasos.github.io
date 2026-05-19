@@ -12,46 +12,46 @@ title: kampányterv első fázis
 
 A cél: 20-50 elkötelezett szervező bevonása, **kézzelfogható outputok** legyártása
 
-* Leszállítandók:
-
-  * név a mozgalomnak
-  * alapüzenetek tesztelése, ha kell finomítása
-  * egyszerű, vizuális magyarázatok
-  * kipróbált receptek olyan aktivitásokra, amik közvetítik az üzenetet élményeken keresztül
-  * tisztában lenni azzal, hogy ki milyen irányba tudja bővíteni a hálózatot (helyi közösségek, véleményformálók)
-  * helyi közösségek magaktivistái
-
 **Alapelv:**
 Decentralizált működés, egységes üzenetekkel
 
-
 # Leszállítandók:
 
-## A. Tartalmi eszközök
+* név a mozgalomnak: Igazságos Választást!
+* arculat, megjelenés
+  * arculat, logo
+  * weboldal design
+  * weboldal tartalom: 3–5 **alap szöveges magyarázat**
+    * hogyan vezetett a választási rendszer a diktatúra kialakulásához?
+    * az arányosság és hatásai
+    * a rangsorolás hatása a közbeszédre
+    * rangsorolás megoldásai (üzenet: lehet egyszerűen)
+    * szavazáselmélet (módszerek, kritériumok, ellenérvek cáfolata)
+    * egyszerű, vizuális magyarázatok a fentiekről
+    * videók
 
-* **egyszerű weboldal** (recruitment form-al)
-* 3–5 **alap szöveges magyarázat**
-
-  * hogyan vezetett a választási rendszer a diktatúra kialakulásához?
-  * az arányosság és hatásai
-  * a rangsorolás hatása a közbeszédre
-  * rangsorolás megoldásai (üzenet: lehet egyszerűen)
-  * szavazáselmélet (módszerek, kritériumok, ellenérvek cáfolata)
-
-* 3-5 **rövid videó** a szöveges magyarázatok alapján
-* **standard prezentáció** (slide + beszédvázlat)
-* **életszerűsítő játékok** (lásd játékötletek)
-* **próbaszavazási csomag** (nyomtatható + digitális)
-* **szavazógép** (civs D21 UI-val)
+* alapüzenetek tesztelése, ha kell finomítása
+  * mit akarunk: minőségi közbeszéd, a szavazat egyenlő értéke és a korrupció visszaszorítása
+  * hogyan érjük el: arányos és rangsorolásos választást
+* toolkit
+  * játékok
+  * egyszerű szavazó tool pl pizzarendeléshez
+  * helyi szavazáshoz módszertan, eszközök
+  * **standard prezentáció** (slide + beszédvázlat)
+  * kabai UI a CIVShez
+* helyi szavazások elindítása
+* posztok, cikkek, kommentek
+* influenszereknek szóló üzenetek, anyagok
+* május végén nagy impaktú kerekasztal beszélgetés
+* matek influenszerektől egítség kérés
+* kipróbált receptek olyan aktivitásokra, amik közvetítik az üzenetet élményeken keresztül
+* tisztában lenni azzal, hogy ki milyen irányba tudja bővíteni a hálózatot (helyi közösségek, véleményformálók)
+* helyi közösségek magaktivistái
+* pénztár, fundraising elemek (nem elnyomva az üzeneteket!)
 
 nice to have:
 
 * civitas-ng fejlesztés felpörgetése, hogy konkrét, robusztus informatikai hátteret is tudjunk adni
-* a szöveges magyarázatok vizuális tuningja
-* szórólap jellegű összefoglalók
-* bevont influenszerek
-* arculatterv
-* pénz (KDEA elkülönített alap)
 
 
 ## B. Társadalmi bizonyítékok

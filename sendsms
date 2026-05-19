@@ -15,15 +15,29 @@ def load_numbers(path):
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
-def send_sms(device,number, message):
+def send_sms(device, number, message):
     try:
-        subprocess.run(
-            ["kdeconnect-cli", "-n", device, "--destination", number, "--send-sms", message],
-            check=True
+        result = subprocess.run(
+            [
+                "kdeconnect-cli",
+                "-n", device,
+                "--destination", number,
+                "--send-sms", message
+            ],
+            check=True,
+            capture_output=True,
+            text=True
         )
+
         print(f"Sent to {number}")
+        print("stdout:", result.stdout)
+        print("stderr:", result.stderr)
+
     except subprocess.CalledProcessError as e:
-        print(f"Failed to send to {number}: {e}")
+        print(f"Failed to send to {number}")
+        print("returncode:", e.returncode)
+        print("stdout:", e.stdout)
+        print("stderr:", e.stderr)
 
 def main():
     print(sys.argv)
