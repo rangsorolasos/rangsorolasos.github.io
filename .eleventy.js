@@ -19,4 +19,11 @@ module.exports = function(eleventyConfig) {
     const minute = parts.find(p => p.type === 'minute').value;
     return `${year}-${month}-${day} ${hour}:${minute}`;
   });
+
+  return {
+    dir: {
+      input: "site",
+      output: "_site"
+    }
+  };
 };
