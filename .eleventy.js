@@ -1,5 +1,6 @@
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("site/styles.css");
+  eleventyConfig.addPassthroughCopy("site/CNAME");
   eleventyConfig.addPassthroughCopy("Downloads");
   eleventyConfig.addFilter("formatBuildDate", function(date) {
     if (!date) date = new Date();
