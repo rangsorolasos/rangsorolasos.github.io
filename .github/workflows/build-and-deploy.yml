@@ -1,0 +1,39 @@
+name: Build and Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ develop ]      # or 'main' – the branch where you edit source files
+  workflow_dispatch:           # allow manual trigger
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write          # needed to push to the 'website' branch
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          ref: develop         # match the trigger branch above
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site with Eleventy
+        run: npm run build
+        # This will fetch activists.json and social.json from your server
+
+      - name: Deploy to 'website' branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: website
+          force_orphan: true
