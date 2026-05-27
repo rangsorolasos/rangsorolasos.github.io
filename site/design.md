@@ -3,18 +3,21 @@
 ### 1. Alapszínek (identitás)
 
 **Mélykék – bizalom, stabilitás**
+<span style="background-color: #1E3A5F">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 
 * HEX: `#1E3A5F`
 * Ez legyen a fő szín (háttér, headline-ok)
 * Üzenet: rendszer, komolyság, hitelesség
 
 **Világos kék – nyitottság, érthetőség**
+<span style="background-color: #4DA3FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 
 * HEX: `#4DA3FF`
 * Használat: kiemelések, linkek, infografikák
 * Üzenet: „érthetővé tesszük”
 
 **Fehér / törtfehér – tisztaság**
+<span style="background-color: #F7F9FB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 
 * HEX: `#F7F9FB`
 * Sok whitespace → egyszerűség, átláthatóság
@@ -24,6 +27,7 @@
 ### 2. Másodlagos színek (jelentés hordozására)
 
 **Zöld – „jó működés”, együttműködés**
+<span style="background-color: #2FBF71">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 
 * HEX: `#2FBF71`
 * Használat:
@@ -32,6 +36,7 @@
   * „megoldás” jelölése
 
 **Narancs – probléma, figyelem**
+<span style="background-color: #F2994A">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 
 * HEX: `#F2994A`
 * Használat:
@@ -40,6 +45,7 @@
   * „elveszett szavazat”, torzulás
 
 **Piros (visszafogott!) – torzulás / veszély**
+<span style="background-color: #D64545">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 
 * HEX: `#D64545`
 * Csak ritkán!
@@ -48,6 +54,9 @@
 ---
 
 ### 3. Neutrális színek (layout)
+<span style="background-color: #2A2A2A">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span style="background-color: #7A7A7A">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span style="background-color: #E5E7EB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 
 * Sötétszürke: `#2A2A2A` (szöveg)
 * Középszürke: `#7A7A7A` (magyarázatok)
