@@ -1,6 +1,6 @@
 
 REMOTE_USER = mag
-REMOTE_HOST = server
+REMOTE_HOST = mailserver
 REMOTE_PATH = /var/www/reform
 
 PANDOC = pandoc
@@ -17,7 +17,7 @@ update:
 	./update-data.py
 
 deploy: update compile
-	cp -r Downloads docs/
+	cp -r Downloads _site/
 	git add --all && git commit ; git push
 
 
@@ -25,7 +25,7 @@ test: compile
 	rsync -avz \
 			--exclude='Makefile' \
 			--exclude='.*' \
-			./docs/ $(REMOTE_USER)@$(REMOTE_HOST):$(REMOTE_PATH)/;
+			./_site/ $(REMOTE_USER)@$(REMOTE_HOST):$(REMOTE_PATH)/;
 
 megyatest: compile
 	cp -r Downloads docs/

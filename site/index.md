@@ -15,9 +15,11 @@ title: Igazságos választást!
 # Rangsorolj! Számítson minden döntésed!
 
 <div class="main_cta">
-<a class="cta" href="https://szirbucz.github.io/valasztas/" target="_blank"
+<a class="cta" href="https://mariorosales8.github.io/Real-Time-Condorcet-Method/" target="_blank"
 rel="noopener noreferrer">Próbáld ki!</a>
 </div>
+
+Ha szeretnétek eldönteni milyen pizzát rendeljetek vagy hová menjetek sörözni: privát vita létrehozása.
 
 # Miből van elegünk?
 
