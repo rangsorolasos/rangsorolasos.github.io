@@ -9,6 +9,10 @@
 body {
   background-color: #F7F9FB;
   color: #2A2A2A;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 a {
@@ -123,11 +127,12 @@ h1 {
 
 /* FOOTER */
 .footer {
+  font-size: small;
   text-align: center;
-  padding: 20px;
+  padding: 1em;
   background-color: #1E3A5F;
   color: white;
-  margin-top: 40px;
+  margin-top: auto;
 }
 
     .brand-header {
