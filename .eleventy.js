@@ -20,7 +20,7 @@ module.exports = function(eleventyConfig) {
     const day = parts.find(p => p.type === 'day').value;
     const hour = parts.find(p => p.type === 'hour').value;
     const minute = parts.find(p => p.type === 'minute').value;
-    return `${year}-${month}-${day} ${hour}:${minute}`;
+    return `${year}-${month}-${day} ${hour}:${minute}`;
   });
 
   return {

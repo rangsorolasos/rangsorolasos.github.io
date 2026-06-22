@@ -16,13 +16,19 @@
     {{ content | safe }}
   </main>
 
-  <footer class="footer">
-    <p>
+  <footer class="footer-bar">
+    <div class="footer-box-left">
       © 2026
       <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.hu">CC-BY-SA</a>
       <a href="https://kdea.hu">Közösségi Digitális Eszközök Alapítvány</a>
       {{ buildDate | formatBuildDate }}
-    </p>
+    </div>
+    <div class="footer-box-separator">
+    </div>
+    <div class="footer-box-right">
+      <a href="/adatkezeles/">adatkezelési tájékoztató</a> |
+      <a href="/kapcsolat/">kapcsolat</a>
+    </div>
   </footer>
 
 </body>

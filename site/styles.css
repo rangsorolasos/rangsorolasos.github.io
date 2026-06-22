@@ -21,7 +21,7 @@ a {
   color: inherit;
 }
 
-h1 {
+h1,h2 {
   margin-top: 1ex;
   margin-bottom: 1ex;
 }
@@ -51,7 +51,7 @@ h1 {
 #redir-bar {
   display: flex;
   justify-content: space-between;
-  font-size: small;
+  font-size: x-small;
   text-align: center;
   padding: 1ex;
   background-color: #F2994A;
@@ -137,13 +137,26 @@ h1 {
 }
 
 /* FOOTER */
-.footer {
-  font-size: small;
-  text-align: center;
+.footer-bar {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  font-size: x-small;
   padding: 1ex;
   background-color: #1E3A5F;
   color: white;
-  margin-top: auto;
+}
+
+.footer-box-left {
+  text-align: left;
+}
+
+.footer-box-separator {
+  min-width: 2em;
+}
+
+.footer-box-right {
+  text-align: right;
 }
 
     .brand-header {
