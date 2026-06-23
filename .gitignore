@@ -1,7 +1,2 @@
+_site
 node_modules
-*.swp
-*.aux
-*.log
-*.dvi
-docs
-*~
