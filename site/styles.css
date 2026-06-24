@@ -121,6 +121,10 @@ nav {
   text-align: center;
 }
 
+.main_points li::marker {
+  content: "⇒ ";
+}
+
 /* CONTENT */
 .content {
   max-width: 900px;

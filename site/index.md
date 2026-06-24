@@ -5,12 +5,11 @@ title: Igazságos választást!
 
 # Rangsorolj! Nincs elveszett szavazat.
 
-* Túlhatalom helyett arányos képviselet.
-
-* Gyűlöletkampány helyett együttműködés.
-
-* Kényszer helyett választói szabadság.
-
+<ul class="main_points">
+<li>Túlhatalom helyett arányos képviselet</li>
+<li>Gyűlöletkampány helyett együttműködés</li>
+<li>Kényszer helyett választói szabadság</li>
+</ul>
 
 # Rangsorolj! Számítson minden döntésed!
 
