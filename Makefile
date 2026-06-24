@@ -28,11 +28,10 @@ test: compile
 			./_site/ $(REMOTE_USER)@$(REMOTE_HOST):$(REMOTE_PATH)/;
 
 megyatest: compile
-	cp -r Downloads docs/
 	rsync -avz \
 			--exclude='Makefile' \
 			--exclude='.*' \
-			./docs/ /var/www/megya
+			./_site/ /var/www/megya
 
 compile:
 	npm run build
